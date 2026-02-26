@@ -89,7 +89,7 @@ STUDENT1_ID NAME                                                            DATE
         201 Shreya Singh                                                     14-JAN-06 Female     6256458959  ##########
         202 Muskan Singh                                                     14-JAN-07 Female     7869593888  ##########
         203 Archana Gupta                                                    14-JAN-07 Female     8796755896  ##########
-        204 Dimpal Singh                                                     03-JAN-07 Female       7958478939  ##########
+        204 Dimpal Singh                                                     03-JAN-07 Female     7958478939  ##########
         205 Sumit Raj                                                        03-JAN-02 Male       9832672495  ##########
         206 Vinit Raj                                                        03-JAN-01 Male       9878859992  ##########
         207 Piyush Raj                                                       06-JAN-00 Male       9882345689  ##########
@@ -274,5 +274,6 @@ ENROLLMENT_ID STUDENT1_ID  COURSE_ID SEMESTER             GRADE
 10 rows selected.
 
 SQL>
+
 
 
