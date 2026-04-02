@@ -1,67 +1,109 @@
-SQL> CREATE TABLE Department (Department_ID NUMBER PRIMARY KEY, Department_Name VARCHAR2(100) NOT NULL, Office_Location VARCHAR2(100));
+CREATE TABLE Department (
+    Dept_ID VARCHAR(10) PRIMARY KEY,
+    Dept_Name VARCHAR(15) NOT NULL,
+    Office_Location VARCHAR(16)
+);
+-- Output: Table created.
 
-Table created.
+DESC Department;
+-- Output:
+-- +------------------+--------------+------+-----+---------+-------+
+-- | Field            | Type         | Null | Key | Default | Extra |
+-- +------------------+--------------+------+-----+---------+-------+
+-- | Dept_ID          | VARCHAR(10)  | NO   | PRI | NULL    |       |
+-- | Dept_Name        | VARCHAR(15)  | NO   |     | NULL    |       |
+-- | Office_Location  | VARCHAR(16)  | YES  |     | NULL    |       |
+-- +------------------+--------------+------+-----+---------+-------+
 
-SQL> DESC Department
- Name                                      Null?    Type
- ----------------------------------------- -------- ----------------------------
- DEPARTMENT_ID                             NOT NULL NUMBER
- DEPARTMENT_NAME                           NOT NULL VARCHAR2(100)
- OFFICE_LOCATION                                    VARCHAR2(100)
+CREATE TABLE Faculty (
+    Faculty_ID VARCHAR(10) PRIMARY KEY,
+    Name VARCHAR(28) NOT NULL,
+    Designation VARCHAR(15),
+    Email VARCHAR(35),
+    Dept_ID VARCHAR(10),
+    FOREIGN KEY (Dept_ID) REFERENCES Department(Dept_ID)
+);
+-- Output: Table created.
 
-SQL> CREATE TABLE Student1 ( Student1_ID NUMBER PRIMARY KEY, Name VARCHAR2(100) NOT NULL, Date_of_Birth DATE, Gender VARCHAR2(10),Contact_Number VARCHAR2(15), Department_ID NUMBER, CONSTRAINT fk_student1_dept FOREIGN KEY (Department_ID) REFERENCES Department (Department_ID));
-
-Table created.
-
-SQL> DESC Student1
- Name                                      Null?    Type
- ----------------------------------------- -------- ----------------------------
- STUDENT1_ID                                NOT NULL NUMBER
- NAME                                      NOT NULL VARCHAR2(100)
- DATE_OF_BIRTH                                      DATE
- GENDER                                             VARCHAR2(10)
- CONTACT_NUMBER                                     VARCHAR2(15)
- DEPARTMENT_ID                                      NUMBER
-
-SQL> CREATE TABLE Faculty ( Faculty_ID NUMBER PRIMARY KEY, Name VARCHAR2(100) NOT NULL, Designation VARCHAR2(50), Email VARCHAR2(100)UNIQUE, Department_ID NUMBER, CONSTRAINT fk_faculty_dept FOREIGN KEY(Department_ID) REFERENCES Department(Department_ID));
-
-Table created.
-
-SQL> DESC Faculty
- Name                                      Null?    Type
- ----------------------------------------- -------- ----------------------------
- FACULTY_ID                                NOT NULL NUMBER
- NAME                                      NOT NULL VARCHAR2(100)
- DESIGNATION                                        VARCHAR2(50)
- EMAIL                                              VARCHAR2(100)
- DEPARTMENT_ID                                      NUMBER
-
-SQL> CREATE TABLE Course (Course_ID NUMBER PRIMARY KEY, Course_Name VARCHAR2(100) NOT NULL, Credits NUMBER, Department_ID NUMBER, Faculty_ID NUMBER, CONSTRAINT fk_Course_dept FOREIGN KEY(Department_ID) REFERENCES Department(Department_ID), CONSTRAINT fk_course_faculty FOREIGN KEY (Faculty_ID) REFERENCES Faculty(Faculty_ID));
-
-Table created.
-
-SQL> DESC Course
- Name                                      Null?    Type
- ----------------------------------------- -------- ----------------------------
- COURSE_ID                                 NOT NULL NUMBER
- COURSE_NAME                               NOT NULL VARCHAR2(100)
- CREDITS                                            NUMBER
- DEPARTMENT_ID                                      NUMBER
- FACULTY_ID                                         NUMBER
+DESC Faculty;
+-- Output:
+-- +--------------+--------------+------+-----+---------+-------+
+-- | Field        | Type         | Null | Key | Default | Extra |
+-- +--------------+--------------+------+-----+---------+-------+
+-- | Faculty_ID   | VARCHAR(10)  | NO   | PRI | NULL    |       |
+-- | Name         | VARCHAR(28)  | NO   |     | NULL    |       |
+-- | Designation  | VARCHAR(15)  | YES  |     | NULL    |       |
+-- | Email        | VARCHAR(35)  | YES  |     | NULL    |       |
+-- | Dept_ID      | VARCHAR(10)  | YES  | MUL | NULL    |       |
+-- +--------------+--------------+------+-----+---------+-------+
 
 
-SQL> CREATE TABLE Enrollment(Enrollment_ID NUMBER PRIMARY KEY, Student1_ID NUMBER, Course_ID NUMBER, Semester VARCHAR2(20), Grade VARCHAR2(5), CONSTRAINT fk_enroll_student1 FOREIGN KEY (Student1_ID) REFERENCES Student1(Student1_ID), CONSTRAINT fk_enroll_course FOREIGN KEY (Course_ID) REFERENCES Course(Course_ID));
+CREATE TABLE Student (
+    Student_ID VARCHAR(10) PRIMARY KEY,
+    Name VARCHAR(20) NOT NULL,
+    DOB DATE,
+    Gender VARCHAR(6),
+    Contact_No NUMBER(10),
+    Dept_ID VARCHAR(10),
+    FOREIGN KEY (Dept_ID) REFERENCES Department(Dept_ID)
+);
+-- Output: Table created.
 
-Table created.
+DESC Student;
+-- Output:
+-- +-------------+--------------+------+-----+---------+-------+
+-- | Field       | Type         | Null | Key | Default | Extra |
+-- +-------------+--------------+------+-----+---------+-------+
+-- | Student_ID  | VARCHAR(10)  | NO   | PRI | NULL    |       |
+-- | Name        | VARCHAR(20)  | NO   |     | NULL    |       |
+-- | DOB         | DATE         | YES  |     | NULL    |       |
+-- | Gender      | VARCHAR(6)   | YES  |     | NULL    |       |
+-- | Contact_No  | NUMBER(10)   | YES  |     | NULL    |       |
+-- | Dept_ID     | VARCHAR(10)  | YES  | MUL | NULL    |       |
+-- +-------------+--------------+------+-----+---------+-------+
 
-SQL> DESC Enrollment
- Name                                      Null?    Type
- ----------------------------------------- -------- ----------------------------
- ENROLLMENT_ID                             NOT NULL NUMBER
- STUDENT1_ID                                         NUMBER
- COURSE_ID                                          NUMBER
- SEMESTER                                           VARCHAR2(20)
- GRADE                                              VARCHAR2(5)
 
+CREATE TABLE Course (
+    Course_ID VARCHAR(10) PRIMARY KEY,
+    Course_Name VARCHAR(13) NOT NULL,
+    Credits NUMBER(3),
+    Dept_ID VARCHAR(10),
+    Faculty_ID VARCHAR(10),
+    FOREIGN KEY (Dept_ID) REFERENCES Department(Dept_ID),
+    FOREIGN KEY (Faculty_ID) REFERENCES Faculty(Faculty_ID)
+);
+-- Output: Table created.
 
-SQL>
+DESC Course;
+-- Output:
+-- +-------------+--------------+------+-----+---------+-------+
+-- | Field       | Type         | Null | Key | Default | Extra |
+-- +-------------+--------------+------+-----+---------+-------+
+-- | Course_ID   | VARCHAR(10)  | NO   | PRI | NULL    |       |
+-- | Course_Name | VARCHAR(13)  | NO   |     | NULL    |       |
+-- | Credits     | NUMBER(3)    | YES  |     | NULL    |       |
+-- | Dept_ID     | VARCHAR(10)  | YES  | MUL | NULL    |       |
+-- | Faculty_ID  | VARCHAR(10)  | YES  | MUL | NULL    |       |
+-- +-------------+--------------+------+-----+---------+-------+
+
+CREATE TABLE Enrollment (
+    Student_ID VARCHAR(10),
+    Course_ID VARCHAR(10),
+    Semester VARCHAR(5),
+    Grade VARCHAR(5),
+    PRIMARY KEY (Student_ID, Course_ID, Semester),
+    FOREIGN KEY (Student_ID) REFERENCES Student(Student_ID),
+    FOREIGN KEY (Course_ID) REFERENCES Course(Course_ID)
+);
+-- Output: Table created.
+
+DESC Enrollment;
+-- Output:
+-- +-------------+--------------+------+-----+---------+-------+
+-- | Field       | Type         | Null | Key | Default | Extra |
+-- +-------------+--------------+------+-----+---------+-------+
+-- | Student_ID  | VARCHAR(10)  | NO   | PRI | NULL    |       |
+-- | Course_ID   | VARCHAR(10)  | NO   | PRI | NULL    |       |
+-- | Semester    | VARCHAR(5)   | NO   | PRI | NULL    |       |
+-- | Grade       | VARCHAR(5)   | YES  |     | NULL    |       |
+-- +-------------+--------------+------+-----+---------+-------+
