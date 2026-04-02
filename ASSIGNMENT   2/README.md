@@ -50,7 +50,7 @@ The database captures the following relationships:
 📂 Included in repository:
 
 ```
-ER_Diagram.png
+assignment2Er.pdf
 ```
 
 ---
