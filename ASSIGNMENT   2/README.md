@@ -65,10 +65,11 @@ The SQL file includes:
 • draw.io (for ER Diagram)
 • GitHub (for submission)
 
-## Student information 
-• Name - Divya pal
-• Reg No - 23157128042
-• Course - B.tech
-• Branch - Cse (AI & ML)
-• Subject - Database Lab 
-• College - BP Mandal college of engineering, Madhepura
+## 🧑‍🎓 Author
+
+- Name - Divya pal
+- Reg No - 23157128042
+- Course - B.tech
+- Branch - Cse (AI & ML)
+- Subject - Database Lab
+- College - BP Mandal college of engineering, Madhepura
