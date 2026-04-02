@@ -1,120 +1,53 @@
-# 🎓 College Database Design – ER Model & SQL Implementation
+# 📘 DBMS Lab – 1  
+DDL & DML Operations (Oracle 21c)
 
-This project demonstrates the design and implementation of a **College Database System** using the **Entity–Relationship (ER) model** and SQL schema creation.
+This lab contains Database Management System (DBMS) practical work performed as part of the 5th Semester DBMS Laboratory. The work is implemented using Oracle Database 21c. The main purpose of this lab is to understand and apply DDL and DML commands through structured SQL queries with clearly written outputs.
 
-The objective of this assignment is to understand how real-world entities in a college environment can be modeled conceptually and then converted into relational tables.
+## 📂 File Included
 
----
+- **1st Lab [Assignment (DDL + DML)].sql**  
+  This file contains all SQL queries along with expected outputs written as comments, following Oracle SQL output format.
 
-## 📌 Project Objective
+## 🧪 Lab Tasks Covered
 
-* Understand **Entity–Relationship modeling**
-* Convert ER diagram into relational tables
-* Implement tables using SQL
-* Apply primary and foreign key constraints
+### Part A: DDL (Data Definition Language)
 
----
+- Create Student and Course tables  
+- Add new columns using ALTER TABLE  
+- Rename columns  
+- Describe table structure  
+- Drop tables  
 
-## 🧩 Entities in the Database
+### Part B: DML (Data Manipulation Language)
 
-The following main entities are modeled:
+- Insert multiple records into tables  
+- Retrieve data using SELECT queries  
+- Apply conditions using WHERE clause  
+- Update records using UPDATE  
+- Delete specific records using DELETE  
+- Commit transactions using COMMIT  
 
-* **Department** – Stores academic department details
-* **Student** – Stores student information
-* **Faculty** – Stores faculty member information
-* **Course** – Stores course details offered by departments
-* **Enrollment** – Represents student course registrations
+## ✨ Key Features
 
----
+- Written and tested on Oracle Database 21c  
+- Proper SQL formatting with comments  
+- Question-wise outputs included  
+- Output shown in SQL style with column names  
+- Suitable for lab submission, viva, and GitHub use  
 
-## 🔗 Relationships Modeled
+## 🎯 Learning Outcome
 
-* One department can have many students
-* One department can have many faculty members
-* One department can offer many courses
-* One faculty member can teach multiple courses
-* Students can enroll in multiple courses (many-to-many)
-* Enrollment table resolves this many-to-many relationship
+After completing this lab, students are able to create and modify database tables, perform insert, update, delete, and select operations, understand table structure, read SQL*Plus outputs, and apply basic DBMS concepts practically.
 
----
+## 🧑‍🎓 Author
 
-## 📐 ER Diagram
+- Name - Divya pal
+- Reg No - 23157128042
+- Course - B.tech
+- Branch - Cse (AI & ML)
+- Subject - Database Lab
+- College - BP Mandal college of engineering, Madhepura
 
-The ER diagram was created using **draw.io (diagrams.net)**.
+## 🛠️ Database Used
 
-It shows:
-
-* Entities and attributes
-* Primary keys
-* Relationships
-* Cardinality (1-M, M-N)
-
-📂 File included in repository:
-
-```
-ER_Diagram.png
-```
-
----
-
-## 🧱 Relational Tables Created
-
-The ER model is converted into the following tables:
-
-1. Department
-2. Student
-3. Faculty
-4. Course
-5. Enrollment
-
-Each table includes appropriate:
-
-* Primary Keys
-* Foreign Keys
-* Constraints
-
----
-
-## 💾 SQL Implementation
-
-All tables are created using SQL `CREATE TABLE` statements.
-
-📂 SQL file included:
-
-```
-college_database.sql
-```
-
-This file contains:
-
-* Table creation queries
-* Key constraints
-* Data types
-
----
-
-## 🚀 How to Use
-
-1. Clone this repository
-2. Open your SQL environment (Oracle / MySQL / PostgreSQL)
-3. Run the SQL file
-4. Tables will be created automatically
-
----
-
-## 📚 Learning Outcome
-
-Through this assignment, we learned:
-
-* How ER diagrams represent real-world systems
-* How to convert conceptual design into relational schema
-* How primary and foreign keys maintain relationships
-* How SQL implements database structure
-
----
-
-## 👨‍💻 Author
-
-- **Name** -> Divya Pal
-- **Branch** -> CSE (AI & ML) 
-- **Reg. No** -> 23157128042
+Oracle Database 21c (Express Edition)
