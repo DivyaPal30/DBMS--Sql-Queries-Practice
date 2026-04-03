@@ -71,9 +71,23 @@ Creating calculated outputs such as:
 
 ## ▶️ How to Execute
 
-1. Open **Oracle SQL\*Plus** or **SQL Developer**  
+1. Open **Oracle SQL\*Plus / SQL Developer**  
 2. Connect to your database  
 3. Run the SQL file:
 
 ```sql
-@lab_queries.sql
+@ASSIGNMENT_LAB_04.sql
+```
+---
+
+## 🧑‍🎓 Author
+
+* **Name:** Divya Pal
+* **Reg No:** 23157128042
+* **Course:** B.Tech
+* **Branch:** CSE (AI & ML)
+* **Subject:** DBMS Lab
+* **College:** B.P. Mandal College of Engineering, Madhepura
+
+---
+
