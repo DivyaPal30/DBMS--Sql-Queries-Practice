@@ -190,7 +190,7 @@ After completing this lab, you will understand:
 SQL-JOIN-Lab                                                                                  
 │                                                                                                                           
 ├── schema.sql                                                                                  
-├── join_lab.sql                                                                                  
+├── assignment5soln.sql                                                                                  
 └── README.md    
 
 ---
