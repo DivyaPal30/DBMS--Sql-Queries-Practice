@@ -205,7 +205,7 @@ SQL-JOIN-Lab
 ```
 3. Execute the JOIN queries
 ```sql
-@assignment5sol.sql
+@assignment5soln.sql
 ```
 
 ---
